@@ -50,4 +50,6 @@ app.get("/",(req,res,next) => {
     res.sendFile(path.join(__dirname,"UIs","login.html"));
 })
 
-app.listen(8081);
+console.log(process.env.PORT);
+
+app.listen(process.env.PORT || 8081);
