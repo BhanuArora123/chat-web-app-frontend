@@ -1,7 +1,7 @@
 let login = document.getElementById("SignIn");
 login.addEventListener("click",() => {
     console.log(document.getElementById("emailId1").value);
-    let loginHandler = new Fetching("http://localhost:8080/login","POST",{
+    let loginHandler = new Fetching("https://chatappbackend12345.herokuapp.com/login","POST",{
         email:document.getElementById("emailId1").value,
         password:document.getElementById("pass1").value
     },
