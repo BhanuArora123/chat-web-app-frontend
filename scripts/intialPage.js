@@ -23,7 +23,7 @@ window.onload = () => {
   }
 
   // creating connection with server 
-  let fetchHandler = new Fetching("http://localhost:8080/init", "GET");
+  let fetchHandler = new Fetching("https://chatappbackend12345.herokuapp.com/init", "GET");
   fetchHandler.fetchData()
     .then((res) => {
       return res.json();
@@ -43,7 +43,7 @@ window.onload = () => {
         pickerPosition: 'top'
       })
       // emit data to websocket
-      iocon = io("http://localhost:8080");
+      iocon = io("https://chatappbackend12345.herokuapp.com");
       let encryptedData = sha256(document.getElementById("msgAreaBox").getAttribute("data-email"));
       console.log(encryptedData);
       iocon.on("connection", (socket) => {
@@ -133,8 +133,8 @@ window.onload = () => {
       for (let i = 0; i < menuItems.length - 2; i++) {
         const element = menuItems[i];
         element.addEventListener("click", () => {
-          let profileHandler = new Fetching(`http://localhost:8080/${element.children[0].getAttribute("data-label")}`, "GET");
-          console.log(`http://localhost:8080/${element.children[0].getAttribute("data-label")}`);
+          let profileHandler = new Fetching(`https://chatappbackend12345.herokuapp.com/${element.children[0].getAttribute("data-label")}`, "GET");
+          console.log(`https://chatappbackend12345.herokuapp.com/${element.children[0].getAttribute("data-label")}`);
           profileHandler.fetchData()
             .then((res) => {
               return res.json();
@@ -369,7 +369,7 @@ window.onload = () => {
     })
     .then((userData) => {
       if (userData.contacts.length > 0) {
-        let fetchHandler = new Fetching("http://localhost:8080/displayMessages", "POST", {
+        let fetchHandler = new Fetching("https://chatappbackend12345.herokuapp.com/displayMessages", "POST", {
           currentId: userData.contacts[0].contactId._id
         }, {
           "Content-Type": "application/json"

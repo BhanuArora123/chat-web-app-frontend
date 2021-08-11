@@ -10,7 +10,7 @@
 function AddContact() {
   let contactName = document.getElementById("contactName");
   let contactEmail = document.getElementById("contactEmail");
-  let fetchHandler = new Fetching("http://localhost:8080/addContact", "POST", {
+  let fetchHandler = new Fetching("https://chatappbackend12345.herokuapp.com/addContact", "POST", {
     name: contactName.value,
     email: contactEmail.value
   },
@@ -52,7 +52,7 @@ async function createGroup() {
   console.log(document.getElementById("groupName").value)
   let formData = new FormData(document.getElementById("createGroup"));
   formData.append("members", JSON.stringify(members));
-  let res = await fetch("http://localhost:8080/createGroup", {
+  let res = await fetch("https://chatappbackend12345.herokuapp.com/createGroup", {
     method: "POST",
     body: formData,
     credentials: "include"
@@ -95,7 +95,7 @@ function sendMessageGrp() {
   if (!msg) {
     return alert("you have to enter a msg , you can't send a null msg");
   }
-  fetch("http://localhost:8080/sendGrpMessage", {
+  fetch("https://chatappbackend12345.herokuapp.com/sendGrpMessage", {
     method: "POST",
     body: formdata,
     credentials: "include",
@@ -129,7 +129,7 @@ function displayGroupBox() {
   $("#msg").emojioneArea({
     pickerPosition: 'top'
   })
-  let fetchHandler = new Fetching("http://localhost:8080/displayGrpMessages", "POST", {
+  let fetchHandler = new Fetching("https://chatappbackend12345.herokuapp.com/displayGrpMessages", "POST", {
     groupName: groupData.groupName,
     creatorId: groupData.creatorId
   }, {
@@ -173,7 +173,7 @@ function DisplayMsgBox() {
   })
   let emoji = document.getElementsByClassName("emojionearea-button-open")[0];
   emoji.innerHTML = `<i class="fas fa-smile-beam float-end fa-lg position-absolute end-1"></i>`
-  let fetchHandler = new Fetching("http://localhost:8080/displayMessages", "POST", {
+  let fetchHandler = new Fetching("https://chatappbackend12345.herokuapp.com/displayMessages", "POST", {
     currentId: userData._id
   }, {
     "Content-Type": "application/json"
@@ -217,7 +217,7 @@ function sendMessage() {
   if (!msg) {
     return alert("you have to enter a msg , you can't send a null msg");
   }
-  fetch("http://localhost:8080/sendMessage", {
+  fetch("https://chatappbackend12345.herokuapp.com/sendMessage", {
     method: "POST",
     body: formdata,
     credentials: "include",
@@ -262,13 +262,13 @@ function downloadNow() {
   console.log("i am in there!");
   let chatId = btn.getAttribute("data-chatId");
   console.log(chatId);
-  // let fetchHandler = new Fetching("http://localhost:8080/downloadNow","POST",{
+  // let fetchHandler = new Fetching("https://chatappbackend12345.herokuapp.com/downloadNow","POST",{
   //   chatId:chatId
   // },{
   //   "Content-Type":"application/json"
   // })
   // fetchHandler.fetchData()
-  fetch("http://localhost:8080/downloadNow", {
+  fetch("https://chatappbackend12345.herokuapp.com/downloadNow", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -318,7 +318,7 @@ function downloadNow() {
 
 
 // function makeCall(btn) {
-//   let fetchHandler = new Fetching("http://localhost:8080/makeCall", "POST", {
+//   let fetchHandler = new Fetching("https://chatappbackend12345.herokuapp.com/makeCall", "POST", {
 //     callTo: btn.getAttribute("data-email")
 //   }, {
 //     "Content-Type": "application/json"
@@ -363,9 +363,9 @@ function searchChat() {
   let inp = this;
   let searchChat = this.getAttribute("data-search");
   let searchField = inp.value;
-  let url = "http://localhost:8080/searchChat";
+  let url = "https://chatappbackend12345.herokuapp.com/searchChat";
   if (searchType) {
-    url = "http://localhost:8080/searchGrp"
+    url = "https://chatappbackend12345.herokuapp.com/searchGrp"
   }
   let fetchHandler = new Fetching(url, "POST", {
     searchField: searchField
@@ -393,7 +393,7 @@ function editUser() {
   //   name:"hello",
   //   status:"i am busy!"
   // };
-  // let fetchHandler = new Fetching("http://localhost:8080/editUser", "POST", formData,{
+  // let fetchHandler = new Fetching("https://chatappbackend12345.herokuapp.com/editUser", "POST", formData,{
   //   "Content-Type":"multipart/form-data; boundary=<calculated when request is sent>"
   // });
   // fetchHandler.fetchData()
@@ -411,7 +411,7 @@ function editUser() {
   //   })
   let editForm = document.getElementById("editForm");
   let form_data = new FormData(editForm);
-  fetch("http://localhost:8080/editUser", {
+  fetch("https://chatappbackend12345.herokuapp.com/editUser", {
     method: "POST",
     body: form_data,
     credentials: "include",

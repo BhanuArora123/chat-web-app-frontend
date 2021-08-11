@@ -1,6 +1,6 @@
 let signup = document.getElementById("signup");
 signup.addEventListener("click",() => {
-    let signupHandler = new Fetching("http://localhost:8080/signup","PUT",{
+    let signupHandler = new Fetching("https://chatappbackend12345.herokuapp.com/signup","PUT",{
         email:document.getElementById("emailId").value,
         password:document.getElementById("pass").value,
         name:document.getElementById("username").value
