@@ -15,12 +15,12 @@ login.addEventListener("click",() => {
     })
     .then((data) => {
         console.log(typeof(data.status));
-        if(data.status == 401){
+        if(data.status == 403){
             document.getElementById("pass1").style.color = "red";
             throw new Error("invalid password");
         }
         else if(data.status != 200 && data.status != 201){
-            throw new Error(data.msg[0]);
+            throw new Error(data.msg[0] || data.msg);
         }
         console.log(data);
         // storing in session storage
