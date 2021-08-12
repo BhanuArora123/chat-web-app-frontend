@@ -352,7 +352,7 @@ function downloadNow() {
 
 function searchChat() {
   let inp = this;
-  let searchChat = this.getAttribute("data-search");
+  let searchType = this.getAttribute("data-search");
   let searchField = inp.value;
   let url = "https://chatappbackend12345.herokuapp.com/searchChat";
   if (searchType) {
