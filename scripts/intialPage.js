@@ -58,15 +58,19 @@ window.onload = () => {
           subMsgBox.innerHTML += new UI().getChatOnGo(data.chat, data.chatType, data.chatTime, data.chatId, "purple", "start")
           // adding changes to attachments;
           if (data.chatType == "File") {
-            let mediaFile = data.chat.split("-");
-            let attachmentsId = document.getElementById("attachments");
-            attachmentsId.innerHTML += `<div class="accordion-body bg-theme-color"><div class="container w-100 p-0 m-0 text-start p-3 fs-15 rounded d-flex flex-column justify-content-between pb-0">
+            try {
+              let mediaFile = data.chat.split("-");
+              let attachmentsId = document.getElementById("attachments");
+              attachmentsId.innerHTML += `<div class="accordion-body bg-theme-color"><div class="container w-100 p-0 m-0 text-start p-3 fs-15 rounded d-flex flex-column justify-content-between pb-0">
       <div class="container d-flex align-items-center h-75 justify-content-between w-100 mb-3">
       <i class="fas fa-download fa-lg cp" id="downloadNow" data-chatId='${data.chatId}' data-image='${mediaFile[mediaFile.length - 1]}'></i>
       <div class="container w-50 text-center">${mediaFile[mediaFile.length - 1]}</div>
       <i class="fas fa-file fa-lg"></i>
     </div>
     </div></div>`;
+            } catch (error) {
+
+            }
           }
         } catch (error) {
           console.log(error);
