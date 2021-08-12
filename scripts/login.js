@@ -15,7 +15,11 @@ login.addEventListener("click",() => {
     })
     .then((data) => {
         console.log(typeof(data.status));
-        if(data.status != 200 && data.status != 201){
+        if(data.status == 401){
+            document.getElementById("pass1").style.color = "red";
+            throw new Error("invalid password");
+        }
+        else if(data.status != 200 && data.status != 201){
             throw new Error(data.msg[0]);
         }
         console.log(data);
@@ -24,13 +28,13 @@ login.addEventListener("click",() => {
         setTimeout(() => {
             try {
                 sessionStorage.removeItem("token_auth");
-            } catch (error) {
+            } catch (err) {
                 console.log(err);
             }
         },3600000)
         location.href = "/index";
     })
     .catch((err) => {
-        console.log(err);
+        alert(err);
     })
 })
