@@ -32,6 +32,7 @@ function AddContact() {
       let msgBox = document.getElementById("msgBox");
       let ui = new UI();
       msgBox.innerHTML += ui.getIndividual(element);
+      displayMsgLis();
     })
     .catch((err) => {
       console.log(err);
@@ -74,6 +75,7 @@ async function createGroup() {
     <div class="col-10 mb-1 small">${data.groupDoc.groupDesc}</div>
   </div>
 </a>`
+displayGrpLis();
 }
 
 function sendMessageGrp() {
@@ -106,6 +108,7 @@ function sendMessageGrp() {
       return res.json();
     })
     .then((data) => {
+      downloadLis();
       // console.log(data);
       // let chatBox = document.getElementById("chatBox");
       // chatBox.innerHTML = new UI().getChatOnGoGrp(data.msg,data.chatType,data.chatTime,data.chatId,"blue","end");
@@ -122,11 +125,7 @@ function displayGroupBox() {
   let Ui = new UI();
   let msgBox = document.getElementById("msgAreaBox");
   msgBox.innerHTML = Ui.getGroupBox(groupData);
-  let sendMsgGrp = document.getElementsByClassName("sendMsgGrp");
-  for (let i = 0; i < sendMsgGrp.length; i++) {
-    const element = sendMsgGrp[i];
-    element.addEventListener("click", sendMessageGrp);
-  }
+  sendGrpMsgLis();
   $("#msg").emojioneArea({
     pickerPosition: 'top'
   })
@@ -135,7 +134,7 @@ function displayGroupBox() {
     creatorId: groupData.creatorId
   }, {
     "Content-Type": "application/json"
-  },sessionStorage.getItem("token_auth"));
+  }, sessionStorage.getItem("token_auth"));
   fetchHandler.fetchData()
     .then((res) => {
       return res.json();
@@ -151,11 +150,8 @@ function displayGroupBox() {
       let emoji = document.getElementsByClassName("emojionearea-button-open")[0];
       console.log(emoji);
       emoji.innerHTML = `<i class="fas fa-smile-beam float-end fa-lg"></i>`
-      let download = document.getElementsByClassName("down");
-        for (let i = 0; i < download.length; i++) {
-          const element = download[i];
-          element.addEventListener("click",downloadNow);
-        }
+      downloadLis();
+      sendGrpMsgLis();
     })
     .catch((err) => {
       console.log(err);
@@ -178,7 +174,7 @@ function DisplayMsgBox() {
     currentId: userData._id
   }, {
     "Content-Type": "application/json"
-  },sessionStorage.getItem("token_auth"));
+  }, sessionStorage.getItem("token_auth"));
   fetchHandler.fetchData()
     .then((res) => {
       return res.json();
@@ -187,12 +183,8 @@ function DisplayMsgBox() {
       console.log(data);
       let chatBox = document.getElementById("chatBox");
       chatBox.innerHTML = Ui.getChatBox(data.chats, userData._id);
-      let download = document.getElementsByClassName("down");
-      for (let i = 0; i < download.length; i++) {
-        const element = download[i];
-        console.log("hi");
-        element.addEventListener("click", downloadNow);
-      }
+      downloadLis();
+      sendMsgLis();
     })
     .catch((err) => {
       console.log(err);
@@ -231,12 +223,7 @@ function sendMessage() {
       let subMsgBox = document.getElementById("subMsgBox");
       subMsgBox.innerHTML += new UI().getChatOnGo(data.chat, data.chatType, data.chatTime, data.chatId, "blue", "end");
       // add media to attachments
-      let download = document.getElementsByClassName("down");
-      for (let i = 0; i < download.length; i++) {
-        const element = download[i];
-        console.log("hi");
-        element.addEventListener("click", downloadNow);
-      }
+      downloadLis();
       try {
         if (data.chatType == "File") {
           let mediaFile = data.chat.split("-");
@@ -273,7 +260,7 @@ function downloadNow() {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization":"Bearer " + sessionStorage.getItem("token_auth")
+      "Authorization": "Bearer " + sessionStorage.getItem("token_auth")
     },
     body: JSON.stringify({
       chatId: chatId
@@ -373,7 +360,7 @@ function searchChat() {
     searchField: searchField
   }, {
     "Content-Type": "application/json"
-  },sessionStorage.getItem("token_auth"))
+  }, sessionStorage.getItem("token_auth"))
   fetchHandler.fetchData()
     .then((res) => {
       return res.json();
@@ -418,7 +405,7 @@ function editUser() {
     body: form_data,
     credentials: "include",
     headers: {
-      "Authorization":"Bearer " + sessionStorage.getItem("token_auth")
+      "Authorization": "Bearer " + sessionStorage.getItem("token_auth")
     }
   })
     .then((res) => {

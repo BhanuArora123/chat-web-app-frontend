@@ -25,7 +25,7 @@ window.onload = () => {
   }
 
   // creating connection with server 
-  let fetchHandler = new Fetching("https://chatappbackend12345.herokuapp.com/init", "GET",undefined,{},sessionStorage.getItem("token_auth"));
+  let fetchHandler = new Fetching("https://chatappbackend12345.herokuapp.com/init", "GET", undefined, {}, sessionStorage.getItem("token_auth"));
   fetchHandler.fetchData()
     .then((res) => {
       return res.json();
@@ -135,7 +135,7 @@ window.onload = () => {
       for (let i = 0; i < menuItems.length - 2; i++) {
         const element = menuItems[i];
         element.addEventListener("click", () => {
-          let profileHandler = new Fetching(`https://chatappbackend12345.herokuapp.com/${element.children[0].getAttribute("data-label")}`, "GET",undefined,{},sessionStorage.getItem("token_auth"));
+          let profileHandler = new Fetching(`https://chatappbackend12345.herokuapp.com/${element.children[0].getAttribute("data-label")}`, "GET", undefined, {}, sessionStorage.getItem("token_auth"));
           console.log(`https://chatappbackend12345.herokuapp.com/${element.children[0].getAttribute("data-label")}`);
           profileHandler.fetchData()
             .then((res) => {
@@ -149,218 +149,131 @@ window.onload = () => {
               if (i == 0) {
                 middle.innerHTML = profile.getProfile(data.userData);
                 try {
-                  let sendMsg = document.getElementsByClassName("sendMsg");
-                  for (let i = 0; i < sendMsg.length; i++) {
-                    const element = sendMsg[i];
-                    element.addEventListener("click", sendMessage);
-                  }
+                  sendMsgLis();
                 } catch (error) {
 
                 }
                 try {
-                  let sendMsgGrp = document.getElementsByClassName("sendMsgGrp");
-                  for (let i = 0; i < sendMsgGrp.length; i++) {
-                    const element = sendMsgGrp[i];
-                    element.addEventListener("click", sendMessageGrp);
-                  }
+                  sendGrpMsgLis();
                 } catch (error) {
 
                 }
                 try {
-                  let edituser = document.getElementById("editUser");
-                  console.log(editUser);
-                  edituser.addEventListener("click", editUser);
+                  editUserLis();
                 } catch (error) {
 
                 }
 
                 // configure acc buttons
 
-                let accBtn = document.querySelectorAll(".accordion-button")
-                accBtn.forEach((element) => {
-                  element.addEventListener("click", accBtnClick);
-                })
+                accBtnLis();
               }
               else if (i == 1) {
                 middle.innerHTML = profile.getChats(data.userData);
                 try {
-                  let displayMsg = document.getElementsByClassName("displayMsg");
-                  for (let i = 0; i < displayMsg.length; i++) {
-                    const element = displayMsg[i];
-                    element.addEventListener("click", DisplayMsgBox);
-                  }
+                  displayMsgLis();
                 } catch (error) {
 
                 }
 
                 try {
-                  let sendMsg = document.getElementsByClassName("sendMsg");
-                  for (let i = 0; i < sendMsg.length; i++) {
-                    const element = sendMsg[i];
-                    element.addEventListener("click", sendMessage);
-                  }
+                  sendMsgLis();
                 } catch (error) {
 
                 }
                 try {
-                  let sendMsgGrp = document.getElementsByClassName("sendMsgGrp");
-                  for (let i = 0; i < sendMsgGrp.length; i++) {
-                    const element = sendMsgGrp[i];
-                    element.addEventListener("click", sendMessageGrp);
-                  }
+                  sendGrpMsgLis();
                 } catch (error) {
 
                 }
                 try {
-                  let download = document.getElementsByClassName("down");
-        for (let i = 0; i < download.length; i++) {
-          const element = download[i];
-          element.addEventListener("click",downloadNow);
-        }
+                  downloadLis()
                 } catch (error) {
 
                 }
-                let searchIt = document.getElementById("searchBox");
-                searchIt.addEventListener("keyup", searchChat);
+                searchLis();
               }
               else if (i == 2) {
                 middle.innerHTML = profile.getGroups(data.userData);
-                let createGrp = document.getElementById("createGrp");
-                createGrp.addEventListener("click", createGroup);
+                createGrpLis();
                 try {
-                  let sendMsg = document.getElementsByClassName("sendMsg");
-                  for (let i = 0; i < sendMsg.length; i++) {
-                    const element = sendMsg[i];
-                    element.addEventListener("click", sendMessage);
-                  }
+                  sendMsgLis();
                 } catch (error) {
 
                 }
                 try {
-                  let sendMsgGrp = document.getElementsByClassName("sendMsgGrp");
-                  for (let i = 0; i < sendMsgGrp.length; i++) {
-                    const element = sendMsgGrp[i];
-                    element.addEventListener("click", sendMessageGrp);
-                  }
+                  sendGrpMsgLis();
                 } catch (error) {
 
                 }
                 try {
-                  let download = document.getElementsByClassName("down");
-        for (let i = 0; i < download.length; i++) {
-          const element = download[i];
-          element.addEventListener("click",downloadNow);
-        }
+                  downloadLis()
                 } catch (error) {
 
                 }
                 try {
-                  let displayGrp = document.getElementsByClassName("displayGrp");
-                  for (let i = 0; i < displayGrp.length; i++) {
-                    const element = displayGrp[i];
-                    element.addEventListener("click", displayGroupBox);
-                  }
+                  displayGrpLis();
                 } catch (error) {
 
                 }
 
-                let searchIt = document.getElementById("searchBox");
-                searchIt.setAttribute("data-search", "Grp");
-                searchIt.addEventListener("keyup", searchChat);
+                searchLis("grp");
               }
               else if (i == 3) {
                 middle.innerHTML = profile.getContact(data.userData);
-                let addContact = document.getElementById("addContact");
-                addContact.addEventListener("click", AddContact);
+                addContactLis();
                 try {
-                  let displayMsg = document.getElementsByClassName("displayMsg");
-                  for (let i = 0; i < displayMsg.length; i++) {
-                    const element = displayMsg[i];
-                    element.addEventListener("click", DisplayMsgBox);
-                  }
+                  displayMsgLis();
 
                 } catch (error) {
 
                 }
                 try {
-                  let sendMsg = document.getElementsByClassName("sendMsg");
-                  for (let i = 0; i < sendMsg.length; i++) {
-                    const element = sendMsg[i];
-                    element.addEventListener("click", sendMessage);
-                  }
+                  sendMsgLis();
                 } catch (error) {
 
                 }
                 try {
-                  let sendMsgGrp = document.getElementsByClassName("sendMsgGrp");
-                  for (let i = 0; i < sendMsgGrp.length; i++) {
-                    const element = sendMsgGrp[i];
-                    element.addEventListener("click", sendMessageGrp);
-                  }
+                  sendGrpMsgLis();
                 } catch (error) {
 
                 }
                 try {
-                  let download = document.getElementsByClassName("down");
-        for (let i = 0; i < download.length; i++) {
-          const element = download[i];
-          element.addEventListener("click",downloadNow);
-        }
+                  downloadLis()
                 } catch (error) {
 
                 }
-                let searchIt = document.getElementById("searchBox");
-                searchIt.addEventListener("keyup", searchChat);
+                searchLis();
               }
               else {
                 middle.innerHTML = profile.getSettings(data.userData);
                 try {
-                  let displayGrp = document.getElementsByClassName("displayMsg");
-                  for (let i = 0; i < displayGrp.length; i++) {
-                    const element = displayGrp[i];
-                    element.addEventListener("click", DisplayMsgBox);
-                  }
+                  displayMsgLis();
                 } catch (error) {
 
                 }
                 try {
-                  let sendMsg = document.getElementsByClassName("sendMsg");
-                  for (let i = 0; i < sendMsg.length; i++) {
-                    const element = sendMsg[i];
-                    element.addEventListener("click", sendMessage);
-                  }
+                  sendMsgLis();
                 } catch (error) {
 
                 }
                 try {
-                  let sendMsgGrp = document.getElementsByClassName("sendMsgGrp");
-                  for (let i = 0; i < sendMsgGrp.length; i++) {
-                    const element = sendMsgGrp[i];
-                    element.addEventListener("click", sendMessageGrp);
-                  }
+                  sendGrpMsgLis();
                 } catch (error) {
 
                 }
                 try {
-                  let download = document.getElementsByClassName("down");
-        for (let i = 0; i < download.length; i++) {
-          const element = download[i];
-          element.addEventListener("click",downloadNow);
-        }
+                  downloadLis()
                 } catch (error) {
 
                 }
-                let edituser = document.getElementById("editUser");
-                edituser.addEventListener("click", editUser);
-                let accBtn = document.querySelectorAll(".accordion-button")
-                accBtn.forEach((element) => {
-                  element.addEventListener("click", accBtnClick);
-                })
+                editUserLis();
+                accBtnLis();
               }
               menuItems[previousIndex].classList.remove("active-item");
               element.classList.add("active-item");
               previousIndex = i;
-              
+
             })
             .catch((err) => {
               console.log(err);
@@ -375,7 +288,7 @@ window.onload = () => {
           currentId: userData.contacts[0].contactId._id
         }, {
           "Content-Type": "application/json"
-        },sessionStorage.getItem("token_auth"));
+        }, sessionStorage.getItem("token_auth"));
         fetchHandler.fetchData()
           .then((res) => {
             return res.json();
@@ -390,39 +303,23 @@ window.onload = () => {
             emoji.innerHTML = `<i class="fas fa-smile-beam float-end fa-lg"></i>`
             // chat page functionalities
 
-      try {
-        let displayMsg = document.getElementsByClassName("displayMsg");
-        for (let i = 0; i < displayMsg.length; i++) {
-          const element = displayMsg[i];
-          element.addEventListener("click", DisplayMsgBox);
-        }
-      } catch (error) {
+            try {
+              displayMsgLis();
+            } catch (error) {
 
-      }
+            }
 
-      try {
-        let sendMsg = document.getElementsByClassName("sendMsg");
-        for (let i = 0; i < sendMsg.length; i++) {
-          const element = sendMsg[i];
-          element.addEventListener("click", sendMessage);
-        }
-      } catch (error) {
+            try {
+              sendMsgLis();
+            } catch (error) {
 
-      }
-      try {
-        let download = document.getElementsByClassName("down");
-        console.log(download);
-        console.log(download.length);
-        for (let i = 0; i < download.length; i++) {
-          const element = download[i];
-          console.log("hi");
-          element.addEventListener("click",downloadNow);
-        }
-      } catch (error) {
+            }
+            try {
+              downloadLis();
+            } catch (error) {
 
-      }
-      let searchIt = document.getElementById("searchBox");
-      searchIt.addEventListener("keyup", searchChat);
+            }
+            searchLis();
           })
           .catch((err) => {
             console.log(err);
