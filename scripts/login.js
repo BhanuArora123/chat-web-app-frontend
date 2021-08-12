@@ -21,10 +21,10 @@ login.addEventListener("click",() => {
         return res.data.data;
     })
     .then((data) => {
-        console.log(typeof(data.status));
-        if(data.status != 200 && data.status != 201){
-            throw new Error(data.msg[0]);
-        }
+        // console.log(typeof(data.status));
+        // if(data.status != 200 && data.status != 201){
+        //     throw new Error(data.msg[0]);
+        // }
         console.log(data);
         location.href = "/index";
     })
