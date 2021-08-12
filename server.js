@@ -27,9 +27,9 @@ app.use(helmet({
     contentSecurityPolicy:{
         useDefaults:true,
         directives:{
-            "script-src":["'self'","kit.fontawesome.com","cdn.jsdelivr.net","cdnjs.cloudflare.com","cdn.socket.io","code.jquery.com",""],
+            "script-src":["'self'","kit.fontawesome.com","cdn.jsdelivr.net","cdnjs.cloudflare.com","cdn.socket.io","code.jquery.com"],
             "connect-src":["'self'","https://chatappbackend12345.herokuapp.com","ka-f.fontawesome.com","ws://chatappbackend12345.herokuapp.com/socket.io/"],
-            "img-src":["'self'","localhost:8080","cdn.jsdelivr.net","www.w3.org","cdnjs.cloudflare.com"]
+            "img-src":["'self'","https://chatappbackend12345.herokuapp.com","cdn.jsdelivr.net","www.w3.org","cdnjs.cloudflare.com"]
         }
     }
 }))
