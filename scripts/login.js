@@ -1,15 +1,16 @@
 let login = document.getElementById("SignIn");
 login.addEventListener("click",() => {
     console.log(document.getElementById("emailId1").value);
-    let loginHandler = new Fetching("https://chatappbackend12345.herokuapp.com/login","POST",{
-        email:document.getElementById("emailId1").value,
-        password:document.getElementById("pass1").value
-    },
-    {
-        "Content-Type":"application/json"
-    }
-    );
-    loginHandler.fetchData()
+    // let loginHandler = new Fetching("https://chatappbackend12345.herokuapp.com/login","POST",{
+    //     email:document.getElementById("emailId1").value,
+    //     password:document.getElementById("pass1").value
+    // },
+    // {
+    //     "Content-Type":"application/json"
+    // }
+    // );
+    // loginHandler.fetchData()
+    axios.get("https://chatappbackend12345.herokuapp.com/login",{withCredentials:true})
     .then((res) => {
         return res.json();
     })
