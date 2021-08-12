@@ -1,3 +1,5 @@
+const { token } = require("morgan");
+
 let iocon;
 let isActive;
 window.onload = () => {
@@ -23,11 +25,10 @@ window.onload = () => {
   }
 
   // creating connection with server 
-  // let fetchHandler = new Fetching("https://chatappbackend12345.herokuapp.com/init", "GET");
-  // fetchHandler.fetchData()
-  axios.get("https://chatappbackend12345.herokuapp.com/init",{withCredentials:true})
+  let fetchHandler = new Fetching("https://chatappbackend12345.herokuapp.com/init", "GET",undefined,{},sessionStorage.getItem("token_auth"));
+  fetchHandler.fetchData()
     .then((res) => {
-      return res.data.data;
+      return res.json();
     })
     .then((data) => {
       console.log(data);
@@ -134,7 +135,7 @@ window.onload = () => {
       for (let i = 0; i < menuItems.length - 2; i++) {
         const element = menuItems[i];
         element.addEventListener("click", () => {
-          let profileHandler = new Fetching(`https://chatappbackend12345.herokuapp.com/${element.children[0].getAttribute("data-label")}`, "GET");
+          let profileHandler = new Fetching(`https://chatappbackend12345.herokuapp.com/${element.children[0].getAttribute("data-label")}`, "GET",undefined,{},sessionStorage.getItem("token_auth"));
           console.log(`https://chatappbackend12345.herokuapp.com/${element.children[0].getAttribute("data-label")}`);
           profileHandler.fetchData()
             .then((res) => {
@@ -374,7 +375,7 @@ window.onload = () => {
           currentId: userData.contacts[0].contactId._id
         }, {
           "Content-Type": "application/json"
-        });
+        },sessionStorage.getItem("token_auth"));
         fetchHandler.fetchData()
           .then((res) => {
             return res.json();

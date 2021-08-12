@@ -16,7 +16,8 @@ function AddContact() {
   },
     {
       "Content-Type": "application/json"
-    }
+    },
+    sessionStorage.getItem("token_auth")
   );
   fetchHandler.fetchData()
     .then((res) => {
@@ -134,7 +135,7 @@ function displayGroupBox() {
     creatorId: groupData.creatorId
   }, {
     "Content-Type": "application/json"
-  });
+  },sessionStorage.getItem("token_auth"));
   fetchHandler.fetchData()
     .then((res) => {
       return res.json();
@@ -177,7 +178,7 @@ function DisplayMsgBox() {
     currentId: userData._id
   }, {
     "Content-Type": "application/json"
-  });
+  },sessionStorage.getItem("token_auth"));
   fetchHandler.fetchData()
     .then((res) => {
       return res.json();
@@ -271,7 +272,8 @@ function downloadNow() {
   fetch("https://chatappbackend12345.herokuapp.com/downloadNow", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "Authorization":"Bearer " + sessionStorage.getItem("token_auth")
     },
     body: JSON.stringify({
       chatId: chatId
@@ -371,7 +373,7 @@ function searchChat() {
     searchField: searchField
   }, {
     "Content-Type": "application/json"
-  })
+  },sessionStorage.getItem("token_auth"))
   fetchHandler.fetchData()
     .then((res) => {
       return res.json();
@@ -415,7 +417,9 @@ function editUser() {
     method: "POST",
     body: form_data,
     credentials: "include",
-    headers: {}
+    headers: {
+      "Authorization":"Bearer " + sessionStorage.getItem("token_auth")
+    }
   })
     .then((res) => {
       return res.json();

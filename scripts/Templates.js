@@ -1,9 +1,11 @@
 class Fetching {
-  constructor(url, method = "GET", body = undefined, header = {}) {
+  constructor(url, method = "GET", body = undefined, header = {},tokenVal) {
     this.url = url;
     this.method = method;
     this.body = body;
-    this.header = header;
+    this.header = {
+      ...header,"Authorization":"Bearer "+tokenVal
+    };
   }
   fetchData = async () => {
     let data;
