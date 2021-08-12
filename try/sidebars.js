@@ -57,7 +57,9 @@ async function createGroup() {
   let res = await fetch("https://chatappbackend12345.herokuapp.com/createGroup", {
     method: "POST",
     body: formData,
-    credentials: "include"
+    headers: {
+      "Authorization":"Bearer " + sessionStorage.getItem("token_auth")
+    }
   })
   let data = await res.json();
   console.log(data);

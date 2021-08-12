@@ -13,8 +13,7 @@ class Fetching {
       data = await fetch(this.url, {
         method: this.method,
         headers: this.header,
-        body: JSON.stringify(this.body),
-        credentials: "include"
+        body: JSON.stringify(this.body)
       }
       );
     }
@@ -22,8 +21,7 @@ class Fetching {
       data = await fetch(this.url, {
         method: this.method,
         headers: this.header,
-        body: this.body,
-        credentials: "include"
+        body: this.body
       });
     }
     return data;
