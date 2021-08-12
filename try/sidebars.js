@@ -214,7 +214,9 @@ function sendMessage() {
     method: "POST",
     body: formdata,
     credentials: "include",
-    headers: {}
+    headers: {
+      "Authorization":"Bearer " + sessionStorage.getItem("token_auth")
+    }
   })
     .then((res) => {
       return res.json();
