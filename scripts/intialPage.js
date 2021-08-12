@@ -56,6 +56,7 @@ window.onload = () => {
         try {
           let subMsgBox = document.getElementById("subMsgBox");
           subMsgBox.innerHTML += new UI().getChatOnGo(data.chat, data.chatType, data.chatTime, data.chatId, "purple", "start")
+          downloadLis();
           // adding changes to attachments;
           if (data.chatType == "File") {
             try {
@@ -86,6 +87,7 @@ window.onload = () => {
             pos = "end";
           }
           subMsgBox.innerHTML += new UI().getChatOnGoGrp(data.chat, data.chatType, data.chatTime, data.chatId, color, pos, data.name, data.email)
+          downloadLis();
           // adding changes to attachments;
         } catch (error) {
           console.log(error);
