@@ -18,7 +18,7 @@ login.addEventListener("click",() => {
 
 })
     .then((res) => {
-        return res.json();
+        return res.data.data;
     })
     .then((data) => {
         console.log(typeof(data.status));
