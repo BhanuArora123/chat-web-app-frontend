@@ -10,7 +10,13 @@ login.addEventListener("click",() => {
     // }
     // );
     // loginHandler.fetchData()
-    axios.get("https://chatappbackend12345.herokuapp.com/login",{withCredentials:true})
+    axios.post("https://chatappbackend12345.herokuapp.com/login",{
+            email:document.getElementById("emailId1").value,
+            password:document.getElementById("pass1").value
+        },{
+        withCredentials:true,
+
+})
     .then((res) => {
         return res.json();
     })

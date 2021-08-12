@@ -23,8 +23,9 @@ window.onload = () => {
   }
 
   // creating connection with server 
-  let fetchHandler = new Fetching("https://chatappbackend12345.herokuapp.com/init", "GET");
-  fetchHandler.fetchData()
+  // let fetchHandler = new Fetching("https://chatappbackend12345.herokuapp.com/init", "GET");
+  // fetchHandler.fetchData()
+  axios.get("https://chatappbackend12345.herokuapp.com/init")
     .then((res) => {
       return res.json();
     })
