@@ -58,7 +58,7 @@ async function createGroup() {
     method: "POST",
     body: formData,
     headers: {
-      "Authorization":"Bearer " + sessionStorage.getItem("token_auth")
+      "Authorization": "Bearer " + sessionStorage.getItem("token_auth")
     }
   })
   let data = await res.json();
@@ -77,7 +77,7 @@ async function createGroup() {
     <div class="col-10 mb-1 small">${data.groupDoc.groupDesc}</div>
   </div>
 </a>`
-displayGrpLis();
+  displayGrpLis();
 }
 
 function sendMessageGrp() {
@@ -104,7 +104,9 @@ function sendMessageGrp() {
     method: "POST",
     body: formdata,
     credentials: "include",
-    headers: {}
+    headers: {
+      "Authorization": "Bearer " + sessionStorage.getItem("token_auth")
+    }
   })
     .then((res) => {
       return res.json();
@@ -217,7 +219,7 @@ function sendMessage() {
     body: formdata,
     credentials: "include",
     headers: {
-      "Authorization":"Bearer " + sessionStorage.getItem("token_auth")
+      "Authorization": "Bearer " + sessionStorage.getItem("token_auth")
     }
   })
     .then((res) => {

@@ -3,26 +3,26 @@
 let iocon;
 let isActive;
 window.onload = () => {
-  function connectToNewUser(userId, stream, myPeer) {
-    const call = myPeer.call(userId, stream)
-    const video = document.createElement('video')
-    call.on('stream', userVideoStream => {
-      addVideoStream(video, userVideoStream)
-    })
-    call.on('close', () => {
-      video.remove()
-    })
+  // function connectToNewUser(userId, stream, myPeer) {
+  //   const call = myPeer.call(userId, stream)
+  //   const video = document.createElement('video')
+  //   call.on('stream', userVideoStream => {
+  //     addVideoStream(video, userVideoStream)
+  //   })
+  //   call.on('close', () => {
+  //     video.remove()
+  //   })
 
-    peers[userId] = call
-  }
+  //   peers[userId] = call
+  // }
 
-  function addVideoStream(video, stream, videoGrid) {
-    video.srcObject = stream
-    video.addEventListener('loadedmetadata', () => {
-      video.play()
-    })
-    videoGrid.append(video)
-  }
+  // function addVideoStream(video, stream, videoGrid) {
+  //   video.srcObject = stream
+  //   video.addEventListener('loadedmetadata', () => {
+  //     video.play()
+  //   })
+  //   videoGrid.append(video)
+  // }
 
   // creating connection with server 
   let fetchHandler = new Fetching("https://chatappbackend12345.herokuapp.com/init", "GET", undefined, {}, sessionStorage.getItem("token_auth"));
@@ -169,7 +169,11 @@ window.onload = () => {
                 } catch (error) {
 
                 }
-
+                try {
+                  downloadLis();
+                } catch (error) {
+                  
+                }
                 // configure acc buttons
 
                 accBtnLis();
