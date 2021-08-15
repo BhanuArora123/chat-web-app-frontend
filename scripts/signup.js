@@ -21,6 +21,6 @@ signup.addEventListener("click",() => {
         location.href = "./login";
     })
     .catch((err) =>{
-        alert(err);
+        alert(err.msg);
     })
 })

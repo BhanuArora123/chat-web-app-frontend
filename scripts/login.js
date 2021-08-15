@@ -17,10 +17,10 @@ login.addEventListener("click",() => {
     .then((data) => {
         if(data.status == 403){
             document.getElementById("pass1").style.color = "red";
-            throw new Error(data.msg[0]);
+            throw new Error(data.msg[0].msg);
         }
         else if(data.status != 200 && data.status != 201){
-            throw new Error(data.msg[0]);
+            throw new Error(data.msg[0].msg);
         }
         console.log(data);
         // storing in session storage
