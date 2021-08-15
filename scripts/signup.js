@@ -15,9 +15,12 @@ signup.addEventListener("click",() => {
     })
     .then((data) => {
         console.log(data);
+        if(data.status != 200 && data.status != 201){
+            throw new Error(data.msg[0]);
+        }
         location.href = "./login";
     })
     .catch((err) =>{
-        console.log(err);
+        alert(err);
     })
 })

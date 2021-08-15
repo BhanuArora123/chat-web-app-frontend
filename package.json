@@ -7,7 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "bhanu",
-  "proxy":"https://chatappbackend12345.herokuapp.com",
   "license": "ISC",
   "dependencies": {
     "compression": "^1.7.4",

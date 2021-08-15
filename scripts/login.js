@@ -1,4 +1,5 @@
 let login = document.getElementById("SignIn");
+alert("This website will work only on PC/laptop as it is not responsive on frontend");
 login.addEventListener("click",() => {
     console.log(document.getElementById("emailId1").value);
     let loginHandler = new Fetching("https://chatappbackend12345.herokuapp.com/login","POST",{
@@ -14,13 +15,12 @@ login.addEventListener("click",() => {
         return res.json();
     })
     .then((data) => {
-        console.log(typeof(data.status));
         if(data.status == 403){
             document.getElementById("pass1").style.color = "red";
-            throw new Error("invalid password");
+            throw new Error(data.msg[0]);
         }
         else if(data.status != 200 && data.status != 201){
-            throw new Error(data.msg[0] || data.msg);
+            throw new Error(data.msg[0]);
         }
         console.log(data);
         // storing in session storage
