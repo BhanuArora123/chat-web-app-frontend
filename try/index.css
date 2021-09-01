@@ -1,164 +1,214 @@
-*{
+* {
     font-family: 'Bree Serif', serif;
 }
-.left-sidebar,.middle-sidebar,.right-sidebar{
+
+.left-sidebar,
+.middle-sidebar,
+.right-sidebar {
     background-color: rgb(0, 48, 90);
 }
-.menu-item{
-    color:white;
+
+.menu-item {
+    color: white;
 }
-.active-item{
+
+.active-item {
     background-color: blue;
 }
-.search-bar{
+
+.search-bar {
     height: 20%;
 }
-.fa-search{
+
+.fa-search {
     right: 17%;
     color: grey;
 }
-.list-group :hover{
+
+.list-group :hover {
     background-color: blue;
 }
-.b-example-divider{
-    background-color: rgba(0, 48, 90,0.8);
+
+.b-example-divider {
+    background-color: rgba(0, 48, 90, 0.8);
 }
-#msgBox::-webkit-scrollbar{
+
+#msgBox::-webkit-scrollbar {
     background-color: rgb(0, 48, 90);
     opacity: 0.4;
     width: 8px;
 }
-#msgBox::-webkit-scrollbar-thumb{
+
+#msgBox::-webkit-scrollbar-thumb {
     background-color: rgb(236, 230, 230);
     border-radius: 20px;
 }
-#msgBox::-webkit-scrollbar-track-piece{
+
+#msgBox::-webkit-scrollbar-track-piece {
     opacity: 0.4;
 }
+
+
 /* .msgArea{
     position: relative;
 } */
-.msgBars{
+
+.msgBars {
     height: 11.8%;
     padding: 0;
     position: sticky;
     top: 0;
     left: 0;
 }
-.msgBox{
+
+.msgBox {
     height: 75.6%;
 }
-.msgIcon{
+
+.msgIcon {
     width: 10%;
 }
-.deliver{
+
+.deliver {
     width: 10%;
     background-color: #793bf5;
 }
-.enterMsg{
+
+.enterMsg {
     width: 90%;
 }
-.msgBox::-webkit-scrollbar{
+
+.msgBox::-webkit-scrollbar {
     background-color: rgb(0, 48, 90);
     width: 8px;
 }
-.msgBox::-webkit-scrollbar-thumb{
+
+.msgBox::-webkit-scrollbar-thumb {
     background-color: rgb(236, 230, 230);
     border-radius: 15px;
 }
-.online{
+
+.online {
     color: rgb(0, 201, 117);
 }
-.bg-theme-color{
+
+.bg-theme-color {
     background-color: rgb(0, 48, 90);
 }
-.accordion-button{
+
+.accordion-button {
     border-radius: 15px;
 }
-.accordion-button:after { 
+
+.accordion-button:after {
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
-  }
-.h-10{
+}
+
+.h-10 {
     height: 10%;
 }
-.cp{
+
+.cp {
     cursor: pointer;
 }
-.bg-blue{
+
+.bg-blue {
     background-color: rgb(1, 75, 139);
 }
-.fs-15{
+
+.fs-15 {
     font-size: 15px;
 }
-.bg-purple{
+
+.bg-purple {
     background-color: #793bf5;
 }
-.fs-13{
+
+.fs-13 {
     font-size: 13px;
 }
-.he-20{
+
+.he-20 {
     height: 20px;
 }
-.dropdown-item:hover{
+
+.dropdown-item:hover {
     background-color: rgb(2, 100, 187);
     color: white;
 }
-#uploadFile{
+
+#uploadFile {
     z-index: 100;
 }
-.w-65{
+
+.w-65 {
     width: 65%;
 }
-.w-15{
-    width:15%;
+
+.w-15 {
+    width: 15%;
 }
-body{
+
+body {
     position: relative;
     z-index: 1;
 }
+
 .modal-backdrop {
-  z-index: 2;
+    z-index: 2;
 }
-.modal-content{
+
+.modal-content {
     z-index: 3;
 }
-.bg-main{
+
+.bg-main {
     background-color: rgb(0, 48, 90);
 }
-.h-200px{
+
+.h-200px {
     height: 300px;
 }
-#flush-collapseTwo::-webkit-scrollbar{
+
+#flush-collapseTwo::-webkit-scrollbar {
     background-color: rgb(0, 48, 90);
     opacity: 0.4;
     width: 8px;
 }
-#flush-collapseTwo::-webkit-scrollbar-thumb{
+
+#flush-collapseTwo::-webkit-scrollbar-thumb {
     background-color: rgb(236, 230, 230);
     border-radius: 20px;
 }
-#flush-collapseTwo::-webkit-scrollbar-track-piece{
+
+#flush-collapseTwo::-webkit-scrollbar-track-piece {
     opacity: 0.4;
 }
-hr:not([size]){
+
+hr:not([size]) {
     height: 2px;
 }
-.isActive,.isOffline{
+
+.isActive,
+.isOffline {
     height: 15px;
     width: 15px;
     right: 39px;
     bottom: 0;
-    background-color:green;
+    background-color: green;
 }
-.isOffline{
+
+.isOffline {
     background-color: red;
 }
-.phoneCall{
+
+.phoneCall {
     background-color: green;
     width: 60px;
     height: 60px;
     border-radius: 50%;
 }
-.phoneBox{
+
+.phoneBox {
     height: 400px;
 }
